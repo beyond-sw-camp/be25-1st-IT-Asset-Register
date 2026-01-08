@@ -21,7 +21,7 @@
 | 이름 | GitHub |
 |---|---|
 | (신민수) | (https://github.com/ZonezIpex) |
-| (김승욱) | (링크) |
+| (김승욱) | ([링크](https://github.com/KIM-SUNG-UK)) |
 | (김지연) | (링크) |
 | (모희주) | (링크) |
 | (박지인) | (링크) |
