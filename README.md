@@ -37,7 +37,7 @@
     </td>
 
   <td align="center" valign="top">
-      <img src="./동물%20이미지/mouse.png" width="120" alt="김지연" /><br />
+      <img src="./동물%20이미지/squirrel.png" width="120" alt="김지연" /><br />
       <b>김지연</b><br />
       <a href="https://github.com/wldusdus63">
         <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
@@ -53,7 +53,7 @@
     </td>
 
   <td align="center" valign="top">
-      <img src="./동물%20이미지/squirrel.png" width="120" alt="박지인" /><br />
+      <img src="./동물%20이미지/mouse.png" width="120" alt="박지인" /><br />
       <b>박지인</b><br />
       <a href="https://github.com/mondayziin">
         <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
