@@ -4,7 +4,7 @@
 <p align="center">
   <img src="./이미지/IT자산원정.png" width="360" alt="대표 아이콘: IT자산원정" />
   <br />
-  <sub><b>대표 아이콘</b></sub>
+  <sub><h2><b>대표 아이콘</b></sub>
 </p>
 
 ## 👀목차
