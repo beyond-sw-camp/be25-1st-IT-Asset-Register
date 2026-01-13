@@ -115,6 +115,10 @@
   https://landing.sellease.io/ko/post/revolutionizing-asset-management-with-sellease-qr-code-based-employee-asset-rental  
   ![](./이미지/셀리즈.png)
 
+-「IT 자산 관리 절차의 정의 및 구현(Definition and implementation of procedures for IT assets managing)」,
+  Research Journal of Business and Management, 4(2), 221–226.
+  ![](./이미지/논문.png)
+
 ---
 
 ## 🎯서비스 목표
