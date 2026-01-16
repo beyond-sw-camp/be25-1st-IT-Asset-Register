@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <img src="./이미지/DB설계_포스터.png?v=3" width="720" alt="대표 포스터" />
+  <img src="./이미지/DB설계_포스터.png?v=4" width="720" alt="대표 포스터" />
   <br />
   <sub><b>프로젝트 포스터</b></sub>
 </p>
