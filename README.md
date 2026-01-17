@@ -132,7 +132,8 @@ due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경�
 
 ## 📅WBS
 
-![](./이미지/WBS.png)  
+![](./이미지/WBS.png)
+< MS Excel Use >
 
 ---
 
@@ -145,6 +146,7 @@ due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경�
 ## 🎬프로젝트 시나리오
 
 ![](./이미지/프로젝트%20시나리오.png?v=1)
+< Draw.io Site Used >
 
 ---
 
@@ -152,12 +154,14 @@ due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경�
 ![](./이미지/요구사항명세서.jpg) 
 
 🔗 [요구사항 명세서](https://docs.google.com/spreadsheets/d/1Ud5T2h4dr9DT8dqLcxDZLFeatAoFF_CawhjO1A6-qOo/edit?gid=0#gid=0)
+< Google spreadsheets Used >
 
 ---
 
 ## 🧩유스케이스 다이어그램
 
 ![](./이미지/유스케이스%20다이어그램.png?v=2)
+< Draw.io Site Used >
 
 ---
 
@@ -179,6 +183,7 @@ due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경�
 ## 📊ERD
 
 ![](./이미지/ERD.png?v=1)
+< ERDCloud Used >
 
 ---
 
