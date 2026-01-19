@@ -1,17 +1,26 @@
+<div align="center">
+
 # IT자산장부
 ## 사내 IT 자산 대여·반납·검수·통합관리 프로세스 DB 설계
 
-<p align="center">
-  <img src="./이미지/한문아이콘.png?v=2" width="360" alt="대표 아이콘" />
-  <br />
-  <sub><b>대표 아이콘</b></sub>
-</p>
+<img src="./이미지/한문아이콘.png?v=2" width="320" alt="대표 아이콘" />
+<br />
+<sub><b>대표 아이콘</b></sub>
 
-<p align="center">
-  <img src="./이미지/DB설계_포스터.png?v=4" width="720" alt="대표 포스터" />
-  <br />
-  <sub><b>프로젝트 포스터</b></sub>
-</p>
+<br /><br />
+
+<img src="./이미지/DB설계_포스터.png?v=4" width="760" alt="프로젝트 포스터" />
+<br />
+<sub><b>프로젝트 포스터</b></sub>
+
+<br /><br />
+
+<img src="https://img.shields.io/badge/DB%20Modeling-ERD%2FDDL%2FTrigger%2FProcedure-0f172a?style=for-the-badge" alt="DB Modeling" />
+<img src="https://img.shields.io/badge/Asset%20Lifecycle-Assign%20%7C%20Return%20%7C%20Inspection-0f172a?style=for-the-badge" alt="Asset Lifecycle" />
+
+</div>
+
+---
 
 ## 👀목차
 1. [👥팀원 소개](#팀원-소개)
@@ -32,7 +41,10 @@
 
 ---
 
+<a id="팀원-소개"></a>
 ## 👥팀원 소개
+
+<div align="center">
 
 <table>
   <tr>
@@ -44,11 +56,10 @@
       </a>
     </td>
 
-  <td align="center" valign="top">
+ <td align="center" valign="top">
       <img src="./동물%20이미지/raven.png" width="120" alt="김승욱" /><br />
       <b>김승욱</b><br />
-      <a href="https://github.com/KIM-SEUNG-WOOK">
-        <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+      <a href="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
       </a>
     </td>
 
@@ -68,7 +79,7 @@
       </a>
     </td>
 
-  <td align="center" valign="top">
+   <td align="center" valign="top">
       <img src="./동물%20이미지/mouse.png" width="120" alt="박지인" /><br />
       <b>박지인</b><br />
       <a href="https://github.com/mondayziin">
@@ -86,26 +97,31 @@
   </tr>
 </table>
 
+</div>
+
 ---
 
+<a id="프로젝트-개요"></a>
 ## 📚프로젝트 개요
 
-사내 IT 자산(노트북, 모니터, 태블릿, 모바일 단말 등)은 프로젝트 투입/부서 이동/외주·협력사 투입 등으로 배정과 회수가 반복됩니다.
+사내 IT 자산(노트북, 모니터, 태블릿, 모바일 단말 등)은 프로젝트 투입/부서 이동/외주·협력사 투입 등으로 배정과 회수가 반복됩니다.  
 하지만 대여·반납 기록이 메신저/엑셀/담당자 개인 기록으로 분산되어 다음을 한 번에 추적하기 어렵습니다.
 
 - 누가 어떤 자산을 언제부터 사용(할당/출고) 중인지
 - 반납 검수 결과(수리 필요/불필요)와 증빙(사진/파일/메모)
 - 반납예정일(due_date) 경과 시 미반납 대상 및 반납관리(요구/경고/제재) 발생 이력
 
-본 프로젝트는 자산 등록 → 할당/출고 → 반납요청 → 회수 → 검수(수리 여부 판정) → 가용 복귀/수리 처리 흐름을 DB 모델로 고정하고,
-due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경고/제재를 시스템 로그로 남겨 누락과 지연을 줄입니다(외부 메신저/메일 실연동 제외).
+본 프로젝트는 **자산 등록 → 할당/출고 → 반납요청 → 회수 → 검수(수리 여부 판정) → 가용 복귀/수리 처리** 흐름을 DB 모델로 고정하고,  
+**due_date 경과를 트리거로 반납관리 이벤트를 생성**해 요구/경고/제재를 시스템 로그로 남겨 누락과 지연을 줄입니다(외부 메신저/메일 실연동 제외).
 
-목표는 아래 구조적 오류를 예방하는 것입니다.
+> **목표(구조적 오류 예방)**
 - 상태 역전 방지: 검수 없이 AVAILABLE 복귀 금지, 수리 이력 없이 UNDER_REPAIR 전환 금지
 - 근거 누락 방지: 요구/경고 로그 없이 제재 상승 금지(정책 예외는 예외 플래그/근거 로그로 고정)
 
-
 ### 🧾참고자료(링크)
+
+<details>
+<summary><b>참고자료 펼치기 / 접기</b></summary>
 
 - 플래텀(2025): IT 자산관리 솔루션 ‘셀리즈’, ITAM 기능 확장(QR 기반 대여/반납 등)  
   https://platum.kr/archives/252140  
@@ -115,12 +131,15 @@ due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경�
   https://landing.sellease.io/ko/post/revolutionizing-asset-management-with-sellease-qr-code-based-employee-asset-rental  
   ![](./이미지/셀리즈.png)
 
-- IT 자산 관리 절차의 정의 및 구현(Definition and implementation of procedures for IT assets managing)
-  https://doi.org/10.17261/Pressacademia.2017.478
+- IT 자산 관리 절차의 정의 및 구현(Definition and implementation of procedures for IT assets managing)  
+  https://doi.org/10.17261/Pressacademia.2017.478  
   ![](./이미지/논문.png)
+
+</details>
 
 ---
 
+<a id="서비스-목표"></a>
 ## 🎯서비스 목표
 
 - 자산 라이프사이클: 등록 → 할당/출고 → 반납요청 → 회수/검수 → (수리) → 가용 복귀 흐름을 상태코드 전이로 강제
@@ -130,42 +149,81 @@ due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경�
 
 ---
 
+<a id="wbs"></a>
 ## 📅WBS
 
+<div align="center">
+
 ![](./이미지/WBS.png)
-< MS Excel Use >
+
+</div>
+
+<div align="center">
+  <sub><kbd>🛠 Tool</kbd> <kbd>MS Excel</kbd> <kbd>📌 Output</kbd> <kbd>WBS</kbd></sub>
+</div>
 
 ---
 
+<a id="프로젝트-기획서"></a>
 ## 📄프로젝트 기획서
 
 - **프로젝트 기획서**: [기획서.pdf](./기획서.pdf)
 - ![](./이미지/기획서이미지.png)
 
+<div align="center">
+  <sub><kbd>🛠 Tool</kbd> <kbd>PDF</kbd> <kbd>📌 Output</kbd> <kbd>Planning Doc</kbd></sub>
+</div>
+
 ---
 
+<a id="프로젝트-시나리오"></a>
 ## 🎬프로젝트 시나리오
 
+<div align="center">
+
 ![](./이미지/프로젝트%20시나리오.png?v=1)
-< Draw.io Site Used >
+
+</div>
+
+<div align="center">
+  <sub><kbd>🛠 Tool</kbd> <kbd>Draw.io</kbd> <kbd>📌 Output</kbd> <kbd>Scenario</kbd></sub>
+</div>
 
 ---
 
+<a id="요구사항-명세서"></a>
 ## 📘요구사항 명세서
-![](./이미지/요구사항명세서.jpg) 
-< MS Excel Use >
+
+<div align="center">
+
+![](./이미지/요구사항명세서.jpg)
+
+</div>
+
+<div align="center">
+  <sub><kbd>🛠 Tool</kbd> <kbd>MS Excel</kbd> <kbd>📌 Output</kbd> <kbd>Requirements</kbd></sub>
+</div>
+
 🔗 [요구사항 명세서](https://docs.google.com/spreadsheets/d/1Ud5T2h4dr9DT8dqLcxDZLFeatAoFF_CawhjO1A6-qOo/edit?gid=0#gid=0)
 
-
 ---
 
+<a id="유스케이스-다이어그램"></a>
 ## 🧩유스케이스 다이어그램
 
+<div align="center">
+
 ![](./이미지/유스케이스%20다이어그램.png?v=2)
-< Draw.io Site Used >
+
+</div>
+
+<div align="center">
+  <sub><kbd>🛠 Tool</kbd> <kbd>Draw.io</kbd> <kbd>📌 Output</kbd> <kbd>Use Case</kbd></sub>
+</div>
 
 ---
 
+<a id="데이터-설계"></a>
 ## 🧱데이터 설계
 
 > TODO: 데이터 설계 개요(엔티티/관계/핵심 규칙) 요약 추가
@@ -181,13 +239,22 @@ due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경�
 
 ---
 
+<a id="erd"></a>
 ## 📊ERD
 
+<div align="center">
+
 ![](./이미지/ERD.png?v=1)
-< ERDCloud Used >
+
+</div>
+
+<div align="center">
+  <sub><kbd>🛠 Tool</kbd> <kbd>ERDCloud</kbd> <kbd>📌 Output</kbd> <kbd>ERD</kbd></sub>
+</div>
 
 ---
 
+<a id="테이블-명세서"></a>
 ## 🗃️테이블 명세서
 
 > TODO: 테이블 명세서 이미지/문서 링크 추가  
@@ -196,6 +263,7 @@ due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경�
 
 ---
 
+<a id="sql-산출물ddl프로시저트리거"></a>
 ## 💾SQL 산출물(DDL/프로시저·트리거)
 
 > TODO: SQL 산출물 파일 링크/설명 추가
@@ -208,6 +276,7 @@ due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경�
 
 ---
 
+<a id="테스트-진행-과정"></a>
 ## 🧪테스트 진행 과정
 
 > TODO: 테스트 시나리오/케이스/결과 추가
@@ -222,6 +291,7 @@ due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경�
 
 ---
 
+<a id="향후-확장-방향"></a>
 ## 🧭향후 확장 방향
 
 > TODO: 확장 방향 정리
@@ -233,6 +303,7 @@ due_date 경과를 트리거로 반납관리 이벤트를 생성해 요구/경�
 
 ---
 
+<a id="회고록"></a>
 ## 📝회고록
 
 > TODO: 회고 작성
