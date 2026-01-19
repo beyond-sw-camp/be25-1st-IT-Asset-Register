@@ -9,7 +9,7 @@
 
 <br /><br />
 
-<img src="./이미지/DB설계_포스터.png?v=4" width="760" alt="프로젝트 포스터" />
+<img src="./이미지/DB설계_포스터.png?v=4" width="620" alt="프로젝트 포스터" />
 <br />
 <sub><b>프로젝트 포스터</b></sub>
 
