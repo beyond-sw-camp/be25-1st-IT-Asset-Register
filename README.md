@@ -255,7 +255,7 @@
   <sub><kbd>🛠 Tool</kbd> <kbd>ERDCloud</kbd> <kbd>📌 Output</kbd> <kbd>ERD</kbd></sub>
 </div
 
-🔗 [ERD<- 아직 링크연결 안되있음](ㅇㅇㅇㅇㅇㅇ)
+🔗 [ERD](https://www.erdcloud.com/d/oqzg5Q52Naw23Rkyc)
 
 ---
 
