@@ -257,10 +257,15 @@
 
 <a id="테이블-명세서"></a>
 ## 🗃️테이블 명세서
-
-> TODO: 테이블 명세서 이미지/문서 링크 추가
-
+<div align="center">
+  
 ![](./이미지/테이블명세서.png)
+
+</div>
+  <div align="center">
+    <sub><kbd>🛠 Tool</kbd> <kbd>EXEL, spreadsheet</kbd> <kbd>📌 Output</kbd> <kbd>테이블명세서</kbd></sub>
+  </div>
+
 
 ---
 
