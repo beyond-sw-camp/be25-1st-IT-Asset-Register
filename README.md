@@ -155,7 +155,7 @@
 
 <div align="center">
 
-![](./이미지/1WBS.png)
+![](./이미지/WBS.png)
 
 </div>
 
