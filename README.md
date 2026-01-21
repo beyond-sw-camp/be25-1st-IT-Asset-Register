@@ -739,24 +739,24 @@ INSERT INTO example_data VALUES
 
   ![자산 테이블 테스트](./이미지/테스트이미지/자산.png)
 
-  ### ✅ 테스트 목적
+  ### ✔️ 테스트 목적
   - 자산 기본 정보가 **정상적으로 생성/적재/조회**되는지 확인
   - 자산이 반드시 **분류 코드(category_id)** 를 통해 관리되도록 FK 연결 검증
 
-  ### ✅ 확인한 스키마 포인트
+  ### ✔️ 확인한 스키마 포인트
   - `asset_id` : **PRIMARY KEY** (자산 식별자)
   - `category_id` : **NOT NULL + FK** → `asset_categories(category_id)` 참조  
     → 분류 없는 자산 데이터 입력을 구조적으로 차단
   - `serial_no` : **NOT NULL** (자산 식별/추적용)
   - `model_name` : 모델명 문자열
 
-  ### ✅ 실행/검증 내용
+  ### ✔️ 실행/검증 내용
   - `CREATE OR REPLACE TABLE assets (...)` 실행 후, 테이블이 정상 생성되는지 확인
   - `SELECT * FROM assets;` 결과로 더미데이터 조회 확인  
     - 예시로 `A001`, `A005`, `A013` 자산이 조회되며  
       각 자산이 `C1~C3` 분류 코드와 연결됨을 확인
 
-  ### ✅ 검증 결론
+  ### ✔️ 검증 결론
   - PK/FK 및 NOT NULL 제약조건이 적용된 상태로 자산 데이터가 조회되어,
     **자산 기본 테이블의 생성과 데이터 적재가 정상임**을 확인
 
@@ -770,22 +770,22 @@ INSERT INTO example_data VALUES
 
   ![자산 분류 테이블 테스트](./이미지/테스트이미지/자산분류.png)
 
-  ### ✅ 테스트 목적
+  ### ✔️ 테스트 목적
   - 자산 분류 마스터 테이블이 **코드/명칭 형태로 정상 구성**되는지 확인
   - `assets.category_id`가 참조할 기준 데이터(마스터)를 확보
 
-  ### ✅ 확인한 스키마 포인트
+  ### ✔️ 확인한 스키마 포인트
   - `category_id` : **PRIMARY KEY** (분류 코드)
   - `category_name` : **NOT NULL** (분류명)  
     → 코드만 있고 이름이 비는 데이터 방지
 
-  ### ✅ 실행/검증 내용
+  ### ✔️ 실행/검증 내용
   - `CREATE OR REPLACE TABLE asset_categories (...)` 실행 후 생성 확인
   - `SELECT * FROM asset_categories;` 조회로 기준 데이터 검증  
     - `C1~C5`가 조회되며, 분류명이 정상 매핑됨  
       (예: `C1=노트북`, `C2=모니터`, `C3=태블릿`, `C4=키보드`, `C5=마우스`)
 
-  ### ✅ 검증 결론
+  ### ✔️ 검증 결론
   - 분류 마스터가 정상 구성되어, `assets` 테이블이 분류 코드로 관리되는 구조를
     **데이터 레벨에서 검증 가능한 상태로 확보**
 
@@ -799,11 +799,11 @@ INSERT INTO example_data VALUES
 
   ![자산 상태 이력 테이블 테스트](./이미지/테스트이미지/자산상태이력.png)
 
-  ### ✅ 테스트 목적
+  ### ✔️ 테스트 목적
   - 자산의 상태 변화를 “현재값”이 아닌 **이력(history)** 으로 추적 가능한지 확인
   - 상태 이력이 반드시 실제 자산(`assets.asset_id`)에 연결되도록 FK 검증
 
-  ### ✅ 확인한 스키마 포인트
+  ### ✔️ 확인한 스키마 포인트
   - `history_id` : **PRIMARY KEY(+ UNIQUE)** (이력 식별자)
   - `asset_id` : **NOT NULL + UNIQUE + FK** → `assets(asset_id)` 참조  
     → 실제 자산이 없는 이력 입력 방지  
@@ -812,13 +812,13 @@ INSERT INTO example_data VALUES
   - `from_status`, `to_status` : 상태 변화 전/후 값
   - `changed_at` : 변경 일자(날짜)
 
-  ### ✅ 실행/검증 내용
+  ### ✔️ 실행/검증 내용
   - `CREATE OR REPLACE TABLE asset_status_history (...)` 실행 후 생성 확인
   - `SELECT * FROM asset_status_history;` 조회로 상태 전이 데이터 검증  
     - 예시로 `IN_STOCK → IN_USE`, `IN_STOCK → RETURNED`, `IN_STOCK → REPAIR` 형태의 전이가 조회됨  
     - `changed_at`가 함께 조회되어 “언제 바뀌었는지”까지 추적 가능함을 확인
 
-  ### ✅ 검증 결론
+  ### ✔️ 검증 결론
   - FK 기반으로 자산과 이력이 연결되며, 상태 전이와 변경일이 조회되어
     **상태 변경 이력 관리 구조가 정상 동작**함을 확인
 
@@ -826,7 +826,7 @@ INSERT INTO example_data VALUES
 
 ---
 
-### ✅ 최종 검증 요약
+### ✔️ 최종 검증 요약
 - `assets.category_id` ↔ `asset_categories.category_id` : **분류 FK 참조 무결성**
 - `asset_status_history.asset_id` ↔ `assets.asset_id` : **자산 FK 참조 무결성**
 - DDL 실행 + SELECT 결과 캡처로 **테이블 생성/데이터 적재/조회 정상 동작**을 증빙
